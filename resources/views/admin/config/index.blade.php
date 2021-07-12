@@ -1,17 +1,17 @@
-<?php $__env->startSection('content'); ?>
+@extends("admin.layouts.app")
+
+@section('content')
 <div class="card">
     <div class="card-body">
-        <a href="<?php echo e(route('createusers')); ?>" class="btn btn-info"><i class="fas fa-plus-circle"></i> Add User</a>
+        <a href="{{route('createconfig')}}" class="btn btn-info"><i class="fas fa-cog"></i> Add Config</a>
         </br></br>
         <table id="usertable" class="table table-bordered table-hover">
         <thead>
         <tr>
             <th class="text-center">No</th>
-            <th class="text-center">Name</th>
-            <th class="text-center">Username</th>
-            <th class="text-center">Email</th>
-            <th class="text-center">Role</th>
-            <th class="text-center">Active</th>
+            <th class="text-center">Meta Key</th>
+            <th class="text-center">Value Key</th>
+            <th class="text-center">Info</th>
             <th class="text-center">Action</th>
         </tr>
         </thead>
@@ -20,41 +20,34 @@
                 $no = 1;
                 foreach($datas as $key => $value) :
                     $active = 'active';
-                    if($value->active == 1) {
+                    if($value->delete_flag == 1) {
                         $active = 'btn-warning ';
                     }
-
             ?>
-                <tr class="<?php echo e($active); ?>">
-                    <td class="text-center"><?php echo e($no); ?></td>
-                    <td><?php echo e($value->name); ?></td>
-                    <td><?php echo e($value->username); ?></td>
-                    <td><?php echo e($value->email); ?></td>
-                    <td><?php
-                        if($value->role == 1) echo 'Superadmin';
-                        if($value->role == 2) echo 'General Admin';
-                        if($value->role == 3) echo 'Admin';
-                    ?></td>
-                    <td class="text-center"><?php if($active != 'active') echo '<span class="btn btn-warning btn-sm">not Active'; else echo '<span class="btn btn-success btn-sm">Active'?></span></td>
+                <tr class="{{$active}}">
+                    <td class="text-center">{{$no}}</td>
+                    <td>{{$value->meta_key}}</td>
+                    <td>{{$value->value_key}}</td>
+                    <td>{{$value->ket}}</td>
                     <td class="text-center">
-                        <a class="btn btn-primary btn-sm" href="<?php echo e(url("dashboard/users/view/$value->id")); ?>" title="View">
+                        <a class="btn btn-primary btn-sm" href="{{url("dashboard/config/view/$value->id_config")}}" title="View">
                             <i class="fas fa-search">
                             </i>
                             
                         </a>
-                        <a class="btn btn-info btn-sm" href="<?php echo e(url("dashboard/users/edit/$value->id")); ?>" title="Edit">
+                        <a class="btn btn-info btn-sm" href="{{url("dashboard/config/edit/$value->id_config")}}" title="Edit">
                             <i class="fas fa-pencil-alt">
                             </i>
                             
                         </a>
                         <?php if($active == 'active') : ?>
-                            <span class="btn btn-danger btn-sm" onclick="showalert(<?php echo e($value->id); ?>)" title="Delete">
+                            <span class="btn btn-danger btn-sm" onclick="showalert({{$value->id_config}})" title="Delete">
                                 <i class="fas fa-trash">
                                 </i>
                                 
                             </span>
                         <?php else : ?>
-                            <span class="btn btn-success btn-sm" onclick="showalert(<?php echo e($value->id); ?>, 1)" title="Activited">
+                            <span class="btn btn-success btn-sm" onclick="showalert({{$value->id_config}}, 1)" title="Activited">
                                 <i class="fas fa-toggle-on">
                                 </i>
 
@@ -69,14 +62,14 @@
         </table>
     </div>
 </div>
-<?php if(Session::has('message')): ?>
+@if (Session::has('message'))
     <div id="toastsContainerTopRight" class="toasts toasts-top-right fixed" style="display: none;">
         <div class="toast bg-warning fade show" role="alert" aria-live="assertive" aria-atomic="true">
             <div class="toast-header"><strong class="mr-auto"><i class="fas fa-info"></i> info :</strong></div>
-            <div class="toast-body"><?php echo e(Session::get('message')); ?></div>
+            <div class="toast-body">{{ Session::get('message') }}</div>
         </div>
     </div>
-<?php endif; ?>
+@endif
 
 <!-- Modal Delete-->
 <div id="myModal" class="modal fade" role="dialog">
@@ -100,9 +93,9 @@
     </div>
 </div>
 
-<?php $__env->stopSection(); ?>
+@endsection
 
-<?php $__env->startSection('script'); ?>
+@section('script')
     <script>
         $(document).ready( function () {
             $('#usertable').DataTable();
@@ -118,7 +111,7 @@
         });
 
         function showalert(id, flag) {
-            var link = '<?php echo e(URL::to('/dashboard/users/delete/')); ?>\/';
+            var link = '{{URL::to('/dashboard/config/delete/')}}\/';
            
             if(flag == 1) {
                 $('#link').html('Activited');
@@ -135,5 +128,4 @@
             $("#myModal").modal();
         }
     </script>
-<?php $__env->stopSection(); ?>
-<?php echo $__env->make("admin.layouts.app", \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?><?php /**PATH /var/www/html/laravel8/backend/resources/views/admin/users/index.blade.php ENDPATH**/ ?>
+@endsection

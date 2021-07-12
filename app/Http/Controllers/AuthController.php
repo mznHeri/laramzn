@@ -120,7 +120,7 @@ class AuthController extends ExtendbController
     public function logout()
     {
         Auth::logout(); // menghapus session yang aktif
-        return redirect()->route($this->LoginName);
+        return redirect()->route('home');
     }
   
   

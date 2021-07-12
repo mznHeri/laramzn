@@ -1,4 +1,7 @@
 <!-- Main Sidebar Container -->
+<?php $idx = '';
+  if(isset($id)) $idx = $id;
+?>
 <aside class="main-sidebar sidebar-dark-primary elevation-4">
     <!-- Brand Logo -->
     <a href="index3.html" class="brand-link">
@@ -9,16 +12,18 @@
     <!-- Sidebar -->
     <div class="sidebar">
       <!-- Sidebar user panel (optional) -->
-      <div class="user-panel mt-3 pb-3 mb-3 d-flex">
-        <div class="image">
-          <img src="{{url('/public/adminlte/img/user2-160x160.jpg')}}" class="img-circle elevation-2" alt="User Image">
-        </div>
+      {{-- <div class="user-panel mt-3 pb-3 mb-3 d-flex">
         <div class="info">
-          <a href="#" class="d-block">Alexander Pierce</a>
+          <span class="d-block capitalize">{{Auth::user()->name}}</span>
+          <span class="d-block capitalize">Role : <?php
+            if(Auth::user()->role == 1) echo 'Superadmin';
+            if(Auth::user()->role == 2) echo 'General Admin';
+            if(Auth::user()->role == 3) echo 'Admin';
+          ?></span>
         </div>
-      </div>
+      </div> --}}
 
-      <!-- SidebarSearch Form -->
+      {{-- <!-- SidebarSearch Form -->
       <div class="form-inline">
         <div class="input-group" data-widget="sidebar-search">
           <input class="form-control form-control-sidebar" type="search" placeholder="Search" aria-label="Search">
@@ -28,8 +33,8 @@
             </button>
           </div>
         </div>
-      </div>
-
+      </div> --}}
+      
       <!-- Sidebar Menu -->
       <nav class="mt-2">
         <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
@@ -41,12 +46,12 @@
             <a href="{{url('dashboard')}}" class="nav-link active" style="background: #639e39;">
               <i class="nav-icon fas fa-tachometer-alt"></i>
               <p>
-                Dashboard
+                Dashboard 
               </p>
             </a>
           </li> 
-          <li class="nav-item {{ ('users' == str_replace('dashboard/', '', request()->path()) || 'users/create' == str_replace('dashboard/', '', request()->path()) ) ? 'menu-open' : ''  }}">
-            <a href="{{url('dashboard/users')}}" class="nav-link {{ ('users' == str_replace('dashboard/', '', request()->path()) || 'users/create' == str_replace('dashboard/', '', request()->path()) ) ? 'active' : '' }}">
+          <li class="nav-item {{ ('users' == str_replace('dashboard/', '', request()->path()) || 'users/create' == str_replace('dashboard/', '', request()->path()) || "users/edit/$idx" == str_replace('dashboard/', '', request()->path()) || "users/view/$idx" == str_replace('dashboard/', '', request()->path()) ) ? 'menu-open' : ''  }}">
+            <a href="{{url('dashboard/users')}}" class="nav-link {{ ('users' == str_replace('dashboard/', '', request()->path()) || 'users/create' == str_replace('dashboard/', '', request()->path()) || "users/edit/$idx" == str_replace('dashboard/', '', request()->path()) || "users/view/$idx" == str_replace('dashboard/', '', request()->path()) ) ? 'active' : '' }}">
               <i class="nav-icon fas fa-user"></i>
               <p>
                 Users
@@ -54,23 +59,24 @@
               </p>
             </a>
             <ul class="nav nav-treeview" style="background: #2b2b2b;">
-              <li class="nav-item {{ ('users' == str_replace('dashboard/', '', request()->path()) ) ? 'active bg-gr' : '' }}">
+              <li class="nav-item {{ ('users' == str_replace('dashboard/', '', request()->path()) || "users/view/$idx" == str_replace('dashboard/', '', request()->path())  ) ? 'active bg-gr' : '' }}">
                 <a href="{{url('dashboard/users')}}" class="nav-link">
                   <i class="far fa-eye nav-icon"></i>
-                  <p>View</p>
+                  <p>View Users</p>
                 </a>
               </li>
               <li class="nav-item {{ ('users/create' == str_replace('dashboard/', '', request()->path()) ) ? 'active bg-gr' : '' }}">
                 <a href="{{url('dashboard/users/create')}}" class="nav-link">
                   <i class="far fa-plus-square nav-icon"></i>
-                  <p>Create</p>
+                  <p>Create User</p>
                 </a>
               </li>
             </ul>
           </li>
 
-          <li class="nav-item {{ ('config' == str_replace('dashboard/', '', request()->path()) || 'config/create' == str_replace('dashboard/', '', request()->path()) ) ? 'menu-open' : ''  }}">
-            <a href="{{url('dashboard/config')}}" class="nav-link {{ ('config' == str_replace('dashboard/', '', request()->path()) || 'config/create' == str_replace('dashboard/', '', request()->path()) ) ? 'active' : ''  }}">
+
+          <li class="nav-item {{ ('config' == str_replace('dashboard/', '', request()->path()) || 'config/create' == str_replace('dashboard/', '', request()->path()) || "config/edit/$idx" == str_replace('dashboard/', '', request()->path()) || "config/view/$idx" == str_replace('dashboard/', '', request()->path()) ) ? 'menu-open' : ''  }}">
+            <a href="{{url('dashboard/config')}}" class="nav-link {{ ('config' == str_replace('dashboard/', '', request()->path()) || 'config/create' == str_replace('dashboard/', '', request()->path()) || "config/edit/$idx" == str_replace('dashboard/', '', request()->path()) || "config/view/$idx" == str_replace('dashboard/', '', request()->path()) ) ? 'active' : '' }}">
               <i class="nav-icon fas fa-cog"></i>
               <p>
                 Config
@@ -78,21 +84,20 @@
               </p>
             </a>
             <ul class="nav nav-treeview" style="background: #2b2b2b;">
-              <li class="nav-item {{ ('config' == str_replace('dashboard/', '', request()->path()) ) ? 'active bg-gr' : '' }}">
+              <li class="nav-item {{ ('config' == str_replace('dashboard/', '', request()->path()) || "config/view/$idx" == str_replace('dashboard/', '', request()->path())  ) ? 'active bg-gr' : '' }}">
                 <a href="{{url('dashboard/config')}}" class="nav-link">
                   <i class="far fa-eye nav-icon"></i>
-                  <p>View</p>
+                  <p>View Config</p>
                 </a>
               </li>
               <li class="nav-item {{ ('config/create' == str_replace('dashboard/', '', request()->path()) ) ? 'active bg-gr' : '' }}">
                 <a href="{{url('dashboard/config/create')}}" class="nav-link">
                   <i class="far fa-plus-square nav-icon"></i>
-                  <p>Create</p>
+                  <p>Create Config</p>
                 </a>
               </li>
             </ul>
           </li>
-
 
           <li class="nav-item {{ ('media' == str_replace('dashboard/', '', request()->path()) ) ? 'active bg-gr' : '' }}">
             <a href="{{url('dashboard/media')}}" class="nav-link">

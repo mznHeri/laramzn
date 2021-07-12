@@ -34,7 +34,6 @@
                         <label>Select Role</label>
                         <select class="form-control" name="role" required>
                             <option value="">--Choose Role--</option>
-                            <option value="1">Superadmin</option>
                             <option value="2">General Admin</option>
                             <option value="3">Admin</option>
                         </select>

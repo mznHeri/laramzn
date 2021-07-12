@@ -1,4 +1,7 @@
 <!-- Main Sidebar Container -->
+<?php $idx = '';
+  if(isset($id)) $idx = $id;
+?>
 <aside class="main-sidebar sidebar-dark-primary elevation-4">
     <!-- Brand Logo -->
     <a href="index3.html" class="brand-link">
@@ -9,27 +12,10 @@
     <!-- Sidebar -->
     <div class="sidebar">
       <!-- Sidebar user panel (optional) -->
-      <div class="user-panel mt-3 pb-3 mb-3 d-flex">
-        <div class="image">
-          <img src="<?php echo e(url('/public/adminlte/img/user2-160x160.jpg')); ?>" class="img-circle elevation-2" alt="User Image">
-        </div>
-        <div class="info">
-          <a href="#" class="d-block">Alexander Pierce</a>
-        </div>
-      </div>
+      
 
-      <!-- SidebarSearch Form -->
-      <div class="form-inline">
-        <div class="input-group" data-widget="sidebar-search">
-          <input class="form-control form-control-sidebar" type="search" placeholder="Search" aria-label="Search">
-          <div class="input-group-append">
-            <button class="btn btn-sidebar">
-              <i class="fas fa-search fa-fw"></i>
-            </button>
-          </div>
-        </div>
-      </div>
-
+      
+      
       <!-- Sidebar Menu -->
       <nav class="mt-2">
         <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
@@ -41,12 +27,12 @@
             <a href="<?php echo e(url('dashboard')); ?>" class="nav-link active" style="background: #639e39;">
               <i class="nav-icon fas fa-tachometer-alt"></i>
               <p>
-                Dashboard
+                Dashboard 
               </p>
             </a>
           </li> 
-          <li class="nav-item <?php echo e(('users' == str_replace('dashboard/', '', request()->path()) || 'users/create' == str_replace('dashboard/', '', request()->path()) ) ? 'menu-open' : ''); ?>">
-            <a href="<?php echo e(url('dashboard/users')); ?>" class="nav-link <?php echo e(('users' == str_replace('dashboard/', '', request()->path()) || 'users/create' == str_replace('dashboard/', '', request()->path()) ) ? 'active' : ''); ?>">
+          <li class="nav-item <?php echo e(('users' == str_replace('dashboard/', '', request()->path()) || 'users/create' == str_replace('dashboard/', '', request()->path()) || "users/edit/$idx" == str_replace('dashboard/', '', request()->path()) || "users/view/$idx" == str_replace('dashboard/', '', request()->path()) ) ? 'menu-open' : ''); ?>">
+            <a href="<?php echo e(url('dashboard/users')); ?>" class="nav-link <?php echo e(('users' == str_replace('dashboard/', '', request()->path()) || 'users/create' == str_replace('dashboard/', '', request()->path()) || "users/edit/$idx" == str_replace('dashboard/', '', request()->path()) || "users/view/$idx" == str_replace('dashboard/', '', request()->path()) ) ? 'active' : ''); ?>">
               <i class="nav-icon fas fa-user"></i>
               <p>
                 Users
@@ -54,23 +40,24 @@
               </p>
             </a>
             <ul class="nav nav-treeview" style="background: #2b2b2b;">
-              <li class="nav-item <?php echo e(('users' == str_replace('dashboard/', '', request()->path()) ) ? 'active bg-gr' : ''); ?>">
+              <li class="nav-item <?php echo e(('users' == str_replace('dashboard/', '', request()->path()) || "users/view/$idx" == str_replace('dashboard/', '', request()->path())  ) ? 'active bg-gr' : ''); ?>">
                 <a href="<?php echo e(url('dashboard/users')); ?>" class="nav-link">
                   <i class="far fa-eye nav-icon"></i>
-                  <p>View</p>
+                  <p>View Users</p>
                 </a>
               </li>
               <li class="nav-item <?php echo e(('users/create' == str_replace('dashboard/', '', request()->path()) ) ? 'active bg-gr' : ''); ?>">
                 <a href="<?php echo e(url('dashboard/users/create')); ?>" class="nav-link">
                   <i class="far fa-plus-square nav-icon"></i>
-                  <p>Create</p>
+                  <p>Create User</p>
                 </a>
               </li>
             </ul>
           </li>
 
-          <li class="nav-item <?php echo e(('config' == str_replace('dashboard/', '', request()->path()) || 'config/create' == str_replace('dashboard/', '', request()->path()) ) ? 'menu-open' : ''); ?>">
-            <a href="<?php echo e(url('dashboard/config')); ?>" class="nav-link <?php echo e(('config' == str_replace('dashboard/', '', request()->path()) || 'config/create' == str_replace('dashboard/', '', request()->path()) ) ? 'active' : ''); ?>">
+
+          <li class="nav-item <?php echo e(('config' == str_replace('dashboard/', '', request()->path()) || 'config/create' == str_replace('dashboard/', '', request()->path()) || "config/edit/$idx" == str_replace('dashboard/', '', request()->path()) || "config/view/$idx" == str_replace('dashboard/', '', request()->path()) ) ? 'menu-open' : ''); ?>">
+            <a href="<?php echo e(url('dashboard/config')); ?>" class="nav-link <?php echo e(('config' == str_replace('dashboard/', '', request()->path()) || 'config/create' == str_replace('dashboard/', '', request()->path()) || "config/edit/$idx" == str_replace('dashboard/', '', request()->path()) || "config/view/$idx" == str_replace('dashboard/', '', request()->path()) ) ? 'active' : ''); ?>">
               <i class="nav-icon fas fa-cog"></i>
               <p>
                 Config
@@ -78,21 +65,20 @@
               </p>
             </a>
             <ul class="nav nav-treeview" style="background: #2b2b2b;">
-              <li class="nav-item <?php echo e(('config' == str_replace('dashboard/', '', request()->path()) ) ? 'active bg-gr' : ''); ?>">
+              <li class="nav-item <?php echo e(('config' == str_replace('dashboard/', '', request()->path()) || "config/view/$idx" == str_replace('dashboard/', '', request()->path())  ) ? 'active bg-gr' : ''); ?>">
                 <a href="<?php echo e(url('dashboard/config')); ?>" class="nav-link">
                   <i class="far fa-eye nav-icon"></i>
-                  <p>View</p>
+                  <p>View Config</p>
                 </a>
               </li>
               <li class="nav-item <?php echo e(('config/create' == str_replace('dashboard/', '', request()->path()) ) ? 'active bg-gr' : ''); ?>">
                 <a href="<?php echo e(url('dashboard/config/create')); ?>" class="nav-link">
                   <i class="far fa-plus-square nav-icon"></i>
-                  <p>Create</p>
+                  <p>Create Config</p>
                 </a>
               </li>
             </ul>
           </li>
-
 
           <li class="nav-item <?php echo e(('media' == str_replace('dashboard/', '', request()->path()) ) ? 'active bg-gr' : ''); ?>">
             <a href="<?php echo e(url('dashboard/media')); ?>" class="nav-link">

@@ -6,6 +6,8 @@ use App\Http\Controllers\FrontendController\InitController;
 use App\Http\Controllers\AdminController\DashboardController;
 use App\Http\Controllers\AdminController\ExtendbController;
 use App\Http\Controllers\AdminController\UserController;
+use App\Http\Controllers\AdminController\ConfigController;
+
 
 $var = new ExtendbController();
 $loginname = $var->getLoginName();
@@ -39,5 +41,16 @@ Route::group(['middleware' => 'auth'], function () {
      Route::get('dashboard/users', [UserController::class, 'index'])->name('users');
      Route::get('dashboard/users/create', [UserController::class, 'create'])->name('createusers');
      Route::post('dashboard/users/create', [UserController::class, 'store']);
+     Route::get('dashboard/users/view/{id}', [UserController::class, 'view'])->name('viewusers');
+     Route::get('dashboard/users/edit/{id}', [UserController::class, 'edit'])->name('editusers');
+     Route::post('dashboard/users/edit/{id}', [UserController::class, 'update']);
      Route::get('dashboard/users/delete/{id}', [UserController::class, 'delete']);
+
+     Route::get('dashboard/config', [ConfigController::class, 'index'])->name('config');
+     Route::get('dashboard/config/create', [ConfigController::class, 'create'])->name('createconfig');
+     Route::post('dashboard/config/create', [ConfigController::class, 'store']);
+     Route::get('dashboard/config/view/{id}', [ConfigController::class, 'view'])->name('viewconfig');
+     Route::get('dashboard/config/edit/{id}', [ConfigController::class, 'edit'])->name('editconfig');
+     Route::post('dashboard/config/edit/{id}', [ConfigController::class, 'update']);
+     Route::get('dashboard/config/delete/{id}', [ConfigController::class, 'delete']);
 });

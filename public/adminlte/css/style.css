@@ -17,3 +17,23 @@ li.nav-item.active.bg-gr {
 table.dataTable tbody tr {
     background-color: #526171;
 }
+
+.dataTables_wrapper .dataTables_length select {
+    background: #343a40;
+}
+
+.uppercase {
+    text-transform: uppercase;
+}
+
+.capitalize {
+    text-transform: capitalize;
+}
+
+.dataTables_wrapper .dataTables_length,
+.dataTables_wrapper .dataTables_filter,
+.dataTables_wrapper .dataTables_info,
+.dataTables_wrapper .dataTables_processing,
+.dataTables_wrapper .dataTables_paginate {
+    color: #fff;
+}

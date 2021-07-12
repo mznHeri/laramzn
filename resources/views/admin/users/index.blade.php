@@ -12,6 +12,7 @@
             <th class="text-center">Name</th>
             <th class="text-center">Username</th>
             <th class="text-center">Email</th>
+            <th class="text-center">Role</th>
             <th class="text-center">Active</th>
             <th class="text-center">Action</th>
         </tr>
@@ -31,29 +32,34 @@
                     <td>{{$value->name}}</td>
                     <td>{{$value->username}}</td>
                     <td>{{$value->email}}</td>
+                    <td><?php
+                        if($value->role == 1) echo 'Superadmin';
+                        if($value->role == 2) echo 'General Admin';
+                        if($value->role == 3) echo 'Admin';
+                    ?></td>
                     <td class="text-center"><?php if($active != 'active') echo '<span class="btn btn-warning btn-sm">not Active'; else echo '<span class="btn btn-success btn-sm">Active'?></span></td>
                     <td class="text-center">
-                        <a class="btn btn-primary btn-sm" href="#">
+                        <a class="btn btn-primary btn-sm" href="{{url("dashboard/users/view/$value->id")}}" title="View">
                             <i class="fas fa-search">
                             </i>
-                            View
+                            
                         </a>
-                        <a class="btn btn-info btn-sm" href="#">
+                        <a class="btn btn-info btn-sm" href="{{url("dashboard/users/edit/$value->id")}}" title="Edit">
                             <i class="fas fa-pencil-alt">
                             </i>
-                            Edit
+                            
                         </a>
                         <?php if($active == 'active') : ?>
-                            <span class="btn btn-danger btn-sm" onclick="showalert({{$value->id}})">
+                            <span class="btn btn-danger btn-sm" onclick="showalert({{$value->id}})" title="Delete">
                                 <i class="fas fa-trash">
                                 </i>
-                                Delete
+                                
                             </span>
                         <?php else : ?>
-                            <span class="btn btn-success btn-sm" onclick="showalert({{$value->id}}, 1)">
-                                <i class="fas fa-trash">
+                            <span class="btn btn-success btn-sm" onclick="showalert({{$value->id}}, 1)" title="Activited">
+                                <i class="fas fa-toggle-on">
                                 </i>
-                                Activited
+
                             </span>
                         <?php endif ?>
                     </td>
@@ -85,7 +91,7 @@
           <button type="button" class="close" data-dismiss="modal">&times;</button>
         </div>
         <div class="modal-body">
-          <p>Are you sure to delete this ?</p>
+          <p id="content_modal_body">Are you sure to delete this ?</p>
         </div>
         <div class="modal-footer">
           <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
@@ -118,10 +124,12 @@
            
             if(flag == 1) {
                 $('#link').html('Activited');
+                $("#content_modal_body").html('Are you sure to Activited this ?');
                 $('#link').addClass('btn-success');
                 $("#link").attr("href", link + id + '?flag=1');
             } else {
                 $('#link').html('Delete');
+                $("#content_modal_body").html('Are you sure to delete this ?');
                 $('#link').addClass('btn-danger');
                 $("#link").attr("href", link + id);
             }

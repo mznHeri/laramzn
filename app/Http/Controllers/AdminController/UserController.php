@@ -24,7 +24,7 @@ class UserController extends ExtendbController
         $title = '<i class="fas fa-user"></i> Users';
         // ============================ //
         
-        $users = User::get();
+        $users = User::where('username', '!=', 'superadmin')->get();
         
         return view('admin.users.index', array(
             'breadcrumbs'   => $breadcrumbs,
@@ -48,6 +48,7 @@ class UserController extends ExtendbController
         return view('admin.users.create', array(
             'breadcrumbs'   => $breadcrumbs,
             'title'         => $title,
+            'data'          => ''
         ));
     }
 
@@ -81,8 +82,8 @@ class UserController extends ExtendbController
         $user->password         = Hash::make($request->password);
         $user->role             = $request->role;
         $user->active           = $request->active;
-        $user->create_by        = Auth::user()->id;;
-        $user->create_by        = Auth::user()->id;;
+        $user->create_by        = Auth::user()->id;
+        $user->update_by        = Auth::user()->id;
         $user->created_at       = date('Y-m-d H:i:s');
         $user->updated_at       = date('Y-m-d H:i:s');
         $user->remember_token   = '9CDSd1reiiJjWxZ1IJmjRDeyPju3AAeTKHZETIXfWuwGmegv2QJ9Guusu3RG';
@@ -97,9 +98,19 @@ class UserController extends ExtendbController
      * @param  \App\Models\User  $user
      * @return \Illuminate\Http\Response
      */
-    public function show(User $user)
+    public function view($id)
     {
-        //
+        $user = User::find($id);
+        $breadcrumbs = $this->breadcrumbs;
+        $title = '<i class="fas fa-user"></i> Edit Users';
+        // ============================ //
+            
+        return view('admin.users.view', array(
+            'breadcrumbs'   => $breadcrumbs,
+            'title'         => $title,
+            'data'          => $user,
+            'id'            => $id
+        ));
     }
 
     /**
@@ -108,9 +119,19 @@ class UserController extends ExtendbController
      * @param  \App\Models\User  $user
      * @return \Illuminate\Http\Response
      */
-    public function edit(User $user)
+    public function edit($id)
     {
-        //
+        $user = User::find($id);
+        $breadcrumbs = $this->breadcrumbs;
+        $title = '<i class="fas fa-user"></i> Edit Users';
+        // ============================ //
+            
+        return view('admin.users.edit', array(
+            'breadcrumbs'   => $breadcrumbs,
+            'title'         => $title,
+            'data'          => $user,
+            'id'            => $id
+        ));
     }
 
     /**
@@ -120,9 +141,60 @@ class UserController extends ExtendbController
      * @param  \App\Models\User  $user
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, User $user)
+    public function update(Request $request, User $user, $id)
     {
-        //
+        
+        if($request->role == '1'){
+            $message = "Data Can't Update, Please Contact Superadministrator";
+            Session::flash('message', $message);
+            return Redirect::back()->withErrors(array('name' => $message));
+        }
+
+        $user = User::find($id);
+        $validator = Validator::make($request->all(), 
+            $user->rules
+        );
+
+        $usernamelama   = $user->username;
+        $emaillama      = $user->email;
+
+
+        if($usernamelama != $request->username) {
+            $cekusername = User::where('username', $request->username)->count();
+            if($cekusername != 0) {
+                $message = "Duplicate Username !!!";
+                Session::flash('message', $message);
+                return Redirect::back()->withErrors(array('name' => $message));
+            }
+        }
+
+        if($emaillama != $request->email ) {
+            $cekusername = User::where('email', $request->email)->count();
+            if($cekusername != 0) {
+                $message = "Duplicate Email !!!";
+                Session::flash('message', $message);
+                return Redirect::back()->withErrors(array('name' => $message));
+            }
+        }
+        
+
+        if($validator->fails()) {
+            return Redirect::to('dashboard/user/create')->withErrors($validator)->withInput($request->input());
+        }
+
+        $user->name             = $request->name;
+        $user->username         = $request->username;
+        $user->email            = $request->email;
+        if($request->password != ''){
+            $user->password     = Hash::make($request->password);
+        }
+        $user->role             = $request->role;
+        $user->active           = $request->active;
+        $user->update_by        = Auth::user()->id;
+        $user->updated_at       = date('Y-m-d H:i:s');
+        $user->save();
+        Session::flash('message', 'User has been updated');
+        return redirect('dashboard/users'); 
     }
 
     /**
