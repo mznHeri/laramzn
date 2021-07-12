@@ -1,0 +1,1 @@
+test<?php /**PATH /var/www/html/laravel8/backend/resources/views/frontend/template/tempate1/index.blade.php ENDPATH**/ ?>
