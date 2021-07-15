@@ -11,10 +11,15 @@ use App\Models\User;
   
 class InitController extends ExtendcController
 {
+
     public function index(Request $request)
     {
         return view("frontend.template.$this->template.index", array(
-            
+            'template' => $this->template,
+            'path' => $this->path
         ));
     }
+
+
+    
 }

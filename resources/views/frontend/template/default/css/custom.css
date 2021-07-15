@@ -1,0 +1,262 @@
+#navbarSupportedContent {
+    margin-top: 5px;
+}
+
+a.nav-link {
+    font-size: 14px;
+    font-weight: bold;
+    color: #000;
+}
+
+.navbar-expand-lg .navbar-nav .nav-link {
+    padding-left: 1.2rem;
+    padding-right: 1.2rem;
+}
+
+a.navbar-brand {
+    padding-top: 0;
+}
+
+a.nav-link.active,
+a.nav-link:hover,
+a.nav-link:focus {
+    color: #d50e21;
+}
+
+a.nav-link.cl-white {
+    color: #FFFFFF;
+}
+
+.navbar-toggler:focus {
+    box-shadow: 0 0 0 0.15rem;
+}
+
+.navbar-toggler-icon {
+    width: auto;
+    height: auto;
+}
+
+.loginleft {
+    font-size: 24px;
+    position: relative;
+    top: 4px;
+    line-height: 16px;
+    left: -5px;
+}
+
+.my-6-cst {
+    margin-top: 15rem !important;
+    margin-bottom: 18rem !important;
+}
+
+.btn-white {
+    color: #FFF;
+    border-color: #FFF;
+    margin-top: 30px;
+}
+
+.btn-white:hover,
+.btn-white:focus {
+    color: #f00;
+    background: #FFF;
+}
+
+.text-shadow-cst {
+    text-shadow: 2px 3px 3px #353535;
+}
+
+.bg-top-cst {
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-attachment: fixed;
+    background-position: center;
+}
+
+.red-cst {
+    color: #d50e21;
+}
+
+.martop-15-cst {
+    margin-top: 15px;
+}
+
+.card .d1 {
+    display: block;
+}
+
+.card .d2 {
+    display: none;
+}
+
+.card.card-cst:hover .d1 {
+    display: none;
+}
+
+.card.card-cst:hover .d2 {
+    display: block;
+}
+
+.box-rd-cst {
+    border-radius: 30px;
+    width: 210px;
+    height: 210px;
+}
+
+.box-rd-cst {
+    border-radius: 30px;
+    width: 210px;
+    height: 210px;
+}
+
+.d1,
+.d2 {
+    margin: 30px auto 15px;
+}
+
+.box-rd-cst:hover {
+    border-radius: 30px;
+    background: #d50e21;
+    color: #FFF;
+    cursor: pointer;
+    box-shadow: 1px 1px 5px 2px #ff5e5e;
+    transition: ease;
+}
+
+.bg-corner-cst {
+    background: #d50e21;
+    color: #FFF;
+    padding-top: 90px;
+    border-top-left-radius: 145px;
+    border-top-right-radius: 145px;
+}
+
+.bg-nt-corner-cst {
+    margin-top: 0 !important;
+    background: #d50e21;
+}
+
+.w-bt20px {
+    border-top-left-radius: 20px;
+    border-top-right-radius: 20px;
+    border: none;
+}
+
+.postop1 {
+    position: relative;
+    top: -167px;
+}
+
+.card-body.nopad {
+    padding: 0;
+}
+
+.card-footer.tdet {
+    background: #FFF;
+    border: 1px solid #DDD;
+}
+
+.tdet span {
+    display: block;
+}
+
+.span-5star {
+    color: rgb(236, 138, 10);
+    margin-bottom: 20px;
+}
+
+span.title-sapi {
+    font-size: 24px;
+    margin: 20px 0 0;
+    font-weight: bold;
+}
+
+span.tharga2 {
+    font-size: 24px;
+    color: #d50f21;
+}
+
+span.tbob {
+    margin: 15px 15px 0;
+    border-top: 1px solid #DDD;
+    padding: 15px 15px 0;
+}
+
+span.tbob.last {
+    padding-bottom: 15px;
+    margin-bottom: 15px;
+    border-bottom: 1px solid #DDD;
+}
+
+.mtb-30 {
+    margin-top: 30px;
+    margin-bottom: 30px;
+}
+
+@media (max-width: 1399px) {
+    .navbar-expand-lg .navbar-nav .nav-link {
+        padding-left: 0.5rem;
+        padding-right: 0.5rem;
+    }
+    .loginleft {
+        left: -5px;
+    }
+}
+
+@media (max-width: 1200px) {
+    .navbar-expand-lg .navbar-nav .nav-link {
+        padding-left: 0.1rem;
+        padding-right: 0.1rem;
+    }
+    .loginleft {
+        left: 0px;
+    }
+}
+
+@media (max-width: 991px) {
+    .d-flex li.nav-item {
+        float: left;
+        width: 200px;
+        position: relative;
+        display: inline-block;
+    }
+    .my-6-cst {
+        margin-top: 7rem !important;
+        margin-bottom: 7rem !important;
+    }
+    .bg-top-cst {
+        background-position: 60%;
+    }
+    .box-rd-cst {
+        border-radius: 30px;
+        width: 165px;
+        height: 165px;
+    }
+    .box-rd-cst:hover {
+        border-radius: 30px;
+    }
+    .d1,
+    .d2 {
+        margin: 2px auto 15px;
+    }
+}
+
+@media (max-width: 768px) {}
+
+@media (max-width: 575px) {
+    .col-sm-12-cst {
+        width: 100%;
+    }
+    .col-sm-6-cst {
+        margin-bottom: 15px;
+        width: 50%;
+    }
+    .box-rd-cst {
+        border-radius: 30px;
+        width: 210px;
+        height: 210px;
+    }
+    .d1,
+    .d2 {
+        margin: 30px auto 15px;
+    }
+}
