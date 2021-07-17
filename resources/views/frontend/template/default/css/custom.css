@@ -37,7 +37,7 @@ a.nav-link.cl-white {
 }
 
 .loginleft {
-    font-size: 24px;
+    font-size: 2rem;
     position: relative;
     top: 4px;
     line-height: 16px;
@@ -135,7 +135,8 @@ a.nav-link.cl-white {
     background: #d50e21;
 }
 
-.w-bt20px {
+.w-bt20px,
+.swiper-slide {
     border-top-left-radius: 20px;
     border-top-right-radius: 20px;
     border: none;
@@ -165,13 +166,13 @@ a.nav-link.cl-white {
 }
 
 span.title-sapi {
-    font-size: 24px;
+    font-size: 2rem;
     margin: 20px 0 0;
     font-weight: bold;
 }
 
 span.tharga2 {
-    font-size: 24px;
+    font-size: 2rem;
     color: #d50f21;
 }
 
@@ -190,6 +191,75 @@ span.tbob.last {
 .mtb-30 {
     margin-top: 30px;
     margin-bottom: 30px;
+}
+
+.bg15 {
+    background: #101820;
+    color: #FFF;
+}
+
+.swiper-container {
+    width: 100%;
+    height: 100%;
+}
+
+.swiper-slide {
+    text-align: center;
+    font-size: 18px;
+    background: #fff;
+    /* Center slide text vertically */
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: -webkit-flex;
+    display: flex;
+    -webkit-box-pack: center;
+    -ms-flex-pack: center;
+    -webkit-justify-content: center;
+    justify-content: center;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    -webkit-align-items: center;
+    align-items: center;
+}
+
+.swiper-slide img {
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+span.t1ttl {
+    display: block;
+    text-align: left;
+    font-size: 2rem;
+    line-height: 35px;
+    margin-bottom: 10px;
+    font-weight: bold;
+    margin-top: 10px;
+}
+
+.fleft {
+    float: left;
+    color: #000;
+}
+
+.d2desc {
+    display: block;
+    text-align: left;
+    font-size: 1rem;
+    letter-spacing: 1px;
+    color: #565656;
+}
+
+img.fleft {
+    width: 150px;
+    margin-right: 20px;
+}
+
+.swiper-button-next,
+.swiper-button-prev {
+    color: #DDD;
 }
 
 @media (max-width: 1399px) {
@@ -240,7 +310,14 @@ span.tbob.last {
     }
 }
 
-@media (max-width: 768px) {}
+@media only screen and (min-width: 769px) {}
+
+@media (max-width: 768px) {
+    .bg-corner-cst {
+        border-top-left-radius: 50px;
+        border-top-right-radius: 50px;
+    }
+}
 
 @media (max-width: 575px) {
     .col-sm-12-cst {

@@ -16,7 +16,9 @@
         
         <!-- Core theme CSS (includes Bootstrap)-->
         <link href="{{asset($path.'/css/aos.css')}}" rel="stylesheet" />
+        <link href="{{asset($path.'/css/swiper.css')}}" rel="stylesheet" />
         <link href="{{asset($path.'/css/styles.css')}}" rel="stylesheet" />
+        
         <link href="{{asset($path.'/css/custom.css')}}" rel="stylesheet" />
     </head>
     <body>
@@ -42,7 +44,7 @@
             </div>
         </nav>
         <!-- Header-->
-        <header class="bg-dark py-5 bg-top-cst" style='background-image: url("{{asset($path.'/assets/images/banner-home.png')}}");'
+        <header class="bg-dark py-5 bg-top-cst" style='background-image: url("{{asset($path.'/assets/images/banner-home.jpg')}}");'
         data-aos="fade-zoom-in"
         data-aos-easing="ease-in-back"
         data-aos-delay="300"
@@ -115,8 +117,8 @@ penggemukan sapi.
                         <h3 class="text-center display-5 fw-bolder" data-aos="fade-up">Pilih Kebutuhan Anda</h3>
                         <p class="text-center" data-aos="fade-up">Demi kenyamanan dan kepuasan Anda, kami siapkan produk dengan kualitas terbaik.</p>
                         <br><br><br>
-                        <div class="row" data-aos="fade-up">
-                            <div class="col-lg-3 col-md-3 col-sm-6 col-sm-6-cst">
+                        <div class="row">
+                            <div class="col-lg-3 col-md-3 col-sm-6 col-sm-6-cst" data-aos="fade-right">
                                 <div class="card card-cst box-rd-cst">
                                     <div class="card-body text-center">
                                         <img class="d1" src="{{asset($path.'/assets/images/dg1.png')}}">
@@ -126,7 +128,7 @@ penggemukan sapi.
                                 </div>
                             </div>
 
-                            <div class="col-lg-3 col-md-3 col-sm-6 col-sm-6-cst">
+                            <div class="col-lg-3 col-md-3 col-sm-6 col-sm-6-cst" data-aos="fade-down">
                                 <div class="card card-cst box-rd-cst">
                                     <div class="card-body text-center">
                                         <img class="d1" src="{{asset($path.'/assets/images/dg1.png')}}">
@@ -136,7 +138,7 @@ penggemukan sapi.
                                 </div>
                             </div>
 
-                            <div class="col-lg-3 col-md-3 col-sm-6 col-sm-6-cst">
+                            <div class="col-lg-3 col-md-3 col-sm-6 col-sm-6-cst" data-aos="fade-up">
                                 <div class="card card-cst box-rd-cst">
                                     <div class="card-body text-center">
                                         <img class="d1" src="{{asset($path.'/assets/images/dg1.png')}}">
@@ -146,7 +148,7 @@ penggemukan sapi.
                                 </div>
                             </div>
 
-                            <div class="col-lg-3 col-md-3 col-sm-6 col-sm-6-cst">
+                            <div class="col-lg-3 col-md-3 col-sm-6 col-sm-6-cst" data-aos="fade-left">
                                 <div class="card card-cst box-rd-cst">
                                     <div class="card-body text-center">
                                         <img class="d1" src="{{asset($path.'/assets/images/dg1.png')}}">
@@ -177,79 +179,239 @@ penggemukan sapi.
             <div class="container px-4 px-lg-5 mt-5 bg-nt-corner-cst"><br><br><br></div>
             <div class="container px-4 px-lg-5 mt-5 postop1">
                 <div class="row" data-aos="fade-up">
-                    <div class="col-lg-4 col-md-4 col-sm-12">
-                        <div class="card w-bt20px">
-                            <div class="card-body text-center nopad">
-                                <img class="w-bt20px w-100" src="{{asset($path.'/assets/images/sapi-simmental.jpg')}}">
+
+                    <div class="swiper-container mySwiper">
+                        <div class="swiper-wrapper">
+
+                          <div class="swiper-slide"> 
+                                <div class="card w-bt20px">
+                                    <div class="card-body text-center nopad">
+                                        <img class="w-bt20px w-100" src="{{asset($path.'/assets/images/sapi-simmental.jpg')}}">
+                                    </div>
+                                    <div class="card-footer text-center nopad tdet">
+                                        <span class="title-sapi">Sapi Simental</span>
+                                        <span class="span-5star">
+                                            <i class="fas fa-star"></i>
+                                            <i class="fas fa-star"></i>
+                                            <i class="fas fa-star"></i>
+                                            <i class="fas fa-star"></i>
+                                            <i class="fas fa-star"></i>
+                                        </span>
+                                        <span class="tharga">Harga bibit sapi</span>
+                                        <span class="tharga2">Rp. 21.000.000/ekor</span>
+                                        <span class="tbob">Bobot awal sapi: 300 Kg</span>
+                                        <span class="tbob">Target bobot sapi: 500kg</span>
+                                        <span class="tbob last ">Estimasi profit 15-25%</span>
+                                        <a href="#" class="w-100 btn btn-lg btn-outline-danger mtb-30">Pelajari selengkapnya</a>
+                                    </div>
+                                </div>
+                          </div>
+
+                          <div class="swiper-slide"> 
+                                <div class="card w-bt20px">
+                                    <div class="card-body text-center nopad">
+                                        <img class="w-bt20px w-100" src="{{asset($path.'/assets/images/sapi-simmental.jpg')}}">
+                                    </div>
+                                    <div class="card-footer text-center nopad tdet">
+                                        <span class="title-sapi">Sapi Simental</span>
+                                        <span class="span-5star">
+                                            <i class="fas fa-star"></i>
+                                            <i class="fas fa-star"></i>
+                                            <i class="fas fa-star"></i>
+                                            <i class="fas fa-star"></i>
+                                            <i class="fas fa-star"></i>
+                                        </span>
+                                        <span class="tharga">Harga bibit sapi</span>
+                                        <span class="tharga2">Rp. 21.000.000/ekor</span>
+                                        <span class="tbob">Bobot awal sapi: 300 Kg</span>
+                                        <span class="tbob">Target bobot sapi: 500kg</span>
+                                        <span class="tbob last ">Estimasi profit 15-25%</span>
+                                        <a href="#" class="w-100 btn btn-lg btn-outline-danger mtb-30">Pelajari selengkapnya</a>
+                                    </div>
+                                </div>
+                          </div>
+                          
+                          <div class="swiper-slide"> 
+                            <div class="card w-bt20px">
+                                <div class="card-body text-center nopad">
+                                    <img class="w-bt20px w-100" src="{{asset($path.'/assets/images/sapi-simmental.jpg')}}">
+                                </div>
+                                <div class="card-footer text-center nopad tdet">
+                                    <span class="title-sapi">Sapi Simental</span>
+                                    <span class="span-5star">
+                                        <i class="fas fa-star"></i>
+                                        <i class="fas fa-star"></i>
+                                        <i class="fas fa-star"></i>
+                                        <i class="fas fa-star"></i>
+                                        <i class="fas fa-star"></i>
+                                    </span>
+                                    <span class="tharga">Harga bibit sapi</span>
+                                    <span class="tharga2">Rp. 21.000.000/ekor</span>
+                                    <span class="tbob">Bobot awal sapi: 300 Kg</span>
+                                    <span class="tbob">Target bobot sapi: 500kg</span>
+                                    <span class="tbob last ">Estimasi profit 15-25%</span>
+                                    <a href="#" class="w-100 btn btn-lg btn-outline-danger mtb-30">Pelajari selengkapnya</a>
+                                </div>
                             </div>
-                            <div class="card-footer text-center nopad tdet">
-                                <span class="title-sapi">Sapi Simental</span>
-                                <span class="span-5star">
-                                    <i class="fas fa-star"></i>
-                                    <i class="fas fa-star"></i>
-                                    <i class="fas fa-star"></i>
-                                    <i class="fas fa-star"></i>
-                                    <i class="fas fa-star"></i>
-                                </span>
-                                <span class="tharga">Harga bibit sapi</span>
-                                <span class="tharga2">Rp. 21.000.000/ekor</span>
-                                <span class="tbob">Bobot awal sapi: 300 Kg</span>
-                                <span class="tbob">Target bobot sapi: 500kg</span>
-                                <span class="tbob last ">Estimasi profit 15-25%</span>
-                                <a href="#" class="btn btn-danger mtb-30">Pelajari selengkapnya</a>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-lg-4 col-md-4 col-sm-12">
-                        <div class="card w-bt20px">
-                            <div class="card-body text-center nopad">
-                                <img class="w-bt20px w-100" src="{{asset($path.'/assets/images/sapi-simmental.jpg')}}">
-                            </div>
-                            <div class="card-footer text-center nopad tdet">
-                                <span class="title-sapi">Sapi Simental</span>
-                                <span class="span-5star">
-                                    <i class="fas fa-star"></i>
-                                    <i class="fas fa-star"></i>
-                                    <i class="fas fa-star"></i>
-                                    <i class="fas fa-star"></i>
-                                    <i class="fas fa-star"></i>
-                                </span>
-                                <span class="tharga">Harga bibit sapi</span>
-                                <span class="tharga2">Rp. 21.000.000/ekor</span>
-                                <span class="tbob">Bobot awal sapi: 300 Kg</span>
-                                <span class="tbob">Target bobot sapi: 500kg</span>
-                                <span class="tbob last ">Estimasi profit 15-25%</span>
-                                <a href="#" class="btn btn-danger mtb-30">Pelajari selengkapnya</a>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-lg-4 col-md-4 col-sm-12">
-                        <div class="card w-bt20px">
-                            <div class="card-body text-center nopad">
-                                <img class="w-bt20px w-100" src="{{asset($path.'/assets/images/sapi-simmental.jpg')}}">
-                            </div>
-                            <div class="card-footer text-center nopad tdet">
-                                <span class="title-sapi">Sapi Simental</span>
-                                <span class="span-5star">
-                                    <i class="fas fa-star"></i>
-                                    <i class="fas fa-star"></i>
-                                    <i class="fas fa-star"></i>
-                                    <i class="fas fa-star"></i>
-                                    <i class="fas fa-star"></i>
-                                </span>
-                                <span class="tharga">Harga bibit sapi</span>
-                                <span class="tharga2">Rp. 21.000.000/ekor</span>
-                                <span class="tbob">Bobot awal sapi: 300 Kg</span>
-                                <span class="tbob">Target bobot sapi: 500kg</span>
-                                <span class="tbob last ">Estimasi profit 15-25%</span>
-                                <a href="#" class="btn btn-danger mtb-30">Pelajari selengkapnya</a>
-                            </div>
+                      </div>
+
+                          
+
                         </div>
                     </div>
                 </div>
             </div>
+        </section>
+
+        <section class="py-5 bg15">
+            <div class="container px-4 px-lg-5 mt-5">
+                <div class="row justify-content-center">
+                    <div class="col-lg-12">
+                        <h3 class="text-center display-5 fw-bolder" data-aos="fade-up">Kami memberikan keuntungan<br>yang lebih untuk Anda</h3>
+                        <br><br>
+
+                        <div class="swiper-container mySwiper2" data-aos="fade-up">
+                            <div class="swiper-wrapper">
+    
+                                <div class="swiper-slide" style="background: none;"> 
+                                    <div class="card">
+                                        <div class="card-body">
+                                            <img class="fleft" src="{{asset($path.'/assets/images/img-a.png')}}">
+                                            <div class="fleft">
+                                                <span class="t1ttl">Bibit Sapi<br>terbaik</span>
+                                                <span class="d2desc">Kami akan memilihkan untuk<br>Anda sapi terbaik.</span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="swiper-slide" style="background: none;"> 
+                                    <div class="card">
+                                        <div class="card-body">
+                                            <img class="fleft" src="{{asset($path.'/assets/images/img-a.png')}}">
+                                            <div class="fleft">
+                                                <span class="t1ttl">Bibit Sapi<br>terbaik</span>
+                                                <span class="d2desc">Kami akan memilihkan untuk<br>Anda sapi terbaik.</span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="swiper-slide" style="background: none;"> 
+                                    <div class="card">
+                                        <div class="card-body">
+                                            <img class="fleft" src="{{asset($path.'/assets/images/img-a.png')}}">
+                                            <div class="fleft">
+                                                <span class="t1ttl">Bibit Sapi<br>terbaik</span>
+                                                <span class="d2desc">Kami akan memilihkan untuk<br>Anda sapi terbaik.</span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                            </div>
+                            <div class="swiper-button-next"></div>
+                            <div class="swiper-button-prev"></div>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+            <br><br><br><br><br><br><br>
+        </section>
+
+        <section class="py-5">
+            <div class="container px-4 px-lg-5 mt-5">
+                <div class="row justify-content-center">
+                    <div class="col-lg-12">
+                        <h3 class="text-center display-5 fw-bolder" data-aos="fade-up">Empat tahapan mudah<br>berinvestasi di kami</h3>
+                        <br><br><br>
+                        <div class="row">
+                            <div class="col-lg-3 col-md-3 col-sm-6" data-aos="fade-left">
+                                <div class="card">
+                                    <div class="card-body text-center">
+                                        <img src="{{asset($path.'/assets/images/img-b.png')}}">
+                                        <h3 class="card-title red-cst">Registrasi</h3>
+                                        <p>Silahkan isi data diri Anda terlebih dahulu di form Registrasi</p>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="col-lg-3 col-md-3 col-sm-6" data-aos="fade-up">
+                                <div class="card">
+                                    <div class="card-body text-center">
+                                        <img src="{{asset($path.'/assets/images/img-b.png')}}">
+                                        <h3 class="card-title red-cst">Registrasi</h3>
+                                        <p>Silahkan isi data diri Anda terlebih dahulu di form Registrasi</p>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="col-lg-3 col-md-3 col-sm-6" data-aos="fade-down">
+                                <div class="card">
+                                    <div class="card-body text-center">
+                                        <img src="{{asset($path.'/assets/images/img-b.png')}}">
+                                        <h3 class="card-title red-cst">Registrasi</h3>
+                                        <p>Silahkan isi data diri Anda terlebih dahulu di form Registrasi</p>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="col-lg-3 col-md-3 col-sm-6" data-aos="fade-right">
+                                <div class="card">
+                                    <div class="card-body text-center">
+                                        <img src="{{asset($path.'/assets/images/img-b.png')}}">
+                                        <h3 class="card-title red-cst">Registrasi</h3>
+                                        <p>Silahkan isi data diri Anda terlebih dahulu di form Registrasi</p>
+                                    </div>
+                                </div>
+                            </div>
+                           
+                        </div>
+                        
+                    </div>
+                </div>
+            </div>
+            <br><br><br>
+        </section>
+
+        <section class="py-5 bg15 bg-top-cst" style='background-image: url("{{asset($path.'/assets/images/bg-2.jpg')}}"); background-repeat: no-repeat;'
+        data-aos="fade-zoom-in"
+        data-aos-easing="ease-in-back"
+        data-aos-delay="300"
+        data-aos-offset="0">
+            <div class="container px-4 px-lg-5 mt-5">
+                <div class="row justify-content-center">
+                    <div class="col-lg-12">
+                        <br><br><br><br>
+                        <h3 class="text-center display-5 fw-bolder" data-aos="fade-up">Memberikan keuntungan untuk Anda<br>adalah kebanggaan kami</h3>
+                        <a class="btn btn-danger martop-15-cst" data-aos="fade-up" href="#" style="width: 240px;
+                        margin: 40px auto;
+                        font-size: 1.2rem;
+                        display: block;">Pesan Sekarang</a>
+                       
+                    </div>
+                </div>
+            </div>
+            <br><br><br><br><br>
+        </section>
 
 
+        <section class="py-5">
+            <div class="container px-4 px-lg-5 mt-5">
+                <div class="row justify-content-center">
+                    <div class="col-lg-12">
+                        <h3 class="text-center display-5 fw-bolder" data-aos="fade-up">Gallery sapi terbaik<br>yang Anda inginkan ada disini</h3>
+                        <br><br><br>
+                        <div class="row">
+                            
+
+                           
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <br><br><br>
         </section>
 
 
@@ -262,11 +424,63 @@ penggemukan sapi.
         <!-- Core theme JS-->
         <script src="{{asset($path.'/js/scripts.js')}}"></script>
         <script src="{{asset($path.'/js/aos.js')}}"></script>
-        
+        <script src="{{asset($path.'/js/swiper.js')}}"></script>
         <script>
             AOS.init({
               easing: 'ease-in-out-sine'
             });
+
+
+            var swiper = new Swiper(".mySwiper", {
+                slidesPerView: 3,
+                spaceBetween: 30,
+                pagination: {
+                el: ".swiper-pagination",
+                clickable: true,
+                },
+                breakpoints: {
+                    "@0.00": {
+                        slidesPerView: 1,
+                        spaceBetween: 30,
+                    },
+                    "@0.75": {
+                        slidesPerView: 2,
+                        spaceBetween: 30,
+                    },
+                    "@1.00": {
+                        slidesPerView: 3,
+                        spaceBetween: 30,
+                    },
+                },
+            });
+
+            var swiper2 = new Swiper(".mySwiper2", {
+                slidesPerView: 2,
+                spaceBetween: 30,
+                navigation: {
+                    nextEl: ".swiper-button-next",
+                    prevEl: ".swiper-button-prev",
+                },
+                pagination: {
+                    el: ".swiper-pagination",
+                    clickable: true,
+                },
+                breakpoints: {
+                    "@0.00": {
+                        slidesPerView: 1,
+                        spaceBetween: 30,
+                    },
+                    "@0.75": {
+                        slidesPerView: 1,
+                        spaceBetween: 30,
+                    },
+                    "@1.00": {
+                        slidesPerView: 2,
+                        spaceBetween: 30,
+                    },
+                },
+            });
+
           </script>
     </body>
 </html>
